@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class Main {
+public class MainTest {
 
     LoginPage loginPage = new LoginPage();
     CheckoutPage checkoutPage = new CheckoutPage();
