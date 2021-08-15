@@ -18,7 +18,7 @@ public class Main {
     BasketPage basketPage = new BasketPage();
 
     @BeforeEach
-    public void setUp() throws IOException {
+    public void testSetUp() throws IOException {
         Configuration.headless = true;
 //        Configuration.startMaximized = true;
         loginPage.openLoginPage()
@@ -28,7 +28,7 @@ public class Main {
 
 
     @AfterEach
-    public void tearDown() {
+    public void testTearDown() {
         closeWebDriver();
     }
 
