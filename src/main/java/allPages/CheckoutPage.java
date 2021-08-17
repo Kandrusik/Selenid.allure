@@ -2,12 +2,13 @@ package allPages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class CheckoutPage extends BasePage {
+public class CheckoutPage {
 
     // Message text
     public SelenideElement thankYouForYourOrder = $("#checkout_complete_container > h2");
@@ -25,6 +26,7 @@ public class CheckoutPage extends BasePage {
     SelenideElement finishOrderButton = $("#finish");
     SelenideElement continueShoppingButton = $("#continue-shopping");
 
+    @Step("Set checkout button")
     public CheckoutPage yourPersonInformation(String firstName, String lastName, String zipCode) {
         firstNameOrder.sendKeys(firstName);
         lastNameOrder.sendKeys(lastName);
@@ -32,20 +34,24 @@ public class CheckoutPage extends BasePage {
         return this;
     }
 
+    @Step("Set checkout button")
     public void setCancelOrderButton() {
         cancelOrderButton.click();
     }
 
+    @Step("Set checkout button")
     public CheckoutPage setContinueOrderButton() {
         continueOrderButton.click();
         return this;
     }
 
+    @Step("Set finish order button")
     public CheckoutPage setFinishOrderButton() {
         finishOrderButton.click();
         return this;
     }
 
+    @Step("String price to double")
     public void stringPriceToDouble() {
         String stringTotalPrice = totalOrderMessage.getText().replace("Item total: $", "");
         Double doubleTotalPrice = Double.parseDouble(stringTotalPrice);
